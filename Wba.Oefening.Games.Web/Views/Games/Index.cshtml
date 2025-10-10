@@ -1,0 +1,11 @@
+﻿@model GamesIndexViewModel
+
+@foreach(var game in Model.Games)
+{ 
+    <p>
+    <a asp-controller="Games" 
+          asp-action="ShowGame" 
+          asp-route-id="@game.Id">@game.Name</a>
+    </p>
+}
+
