@@ -1,0 +1,26 @@
+﻿@model DevelopersShowDeveloperViewModel
+
+<div class="row">
+    <div class="col col-lg-4 mx-auto">
+        <div class="card text-center" style="width: 18rem;">
+            <!--tips: add .text-center,.text-right to the .card to change card text alignment-->
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Games</h6>
+                @foreach (var game in Model.Games)
+                {
+                    <a asp-controller="Games"
+                       asp-action="ShowGame"
+                       asp-route-id="@game.Id"
+                       class="card-link">@game.Name</a>
+                }
+            </div>
+            <div class="card-footer">
+                <a asp-controller="Developers" asp-action="Index"
+                   class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

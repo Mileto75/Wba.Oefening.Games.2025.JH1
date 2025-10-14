@@ -67,7 +67,6 @@ namespace Wba.Oefening.Games.Web.Controllers
             //pass to the view
             return View(developersShowDevelopersViewModel);
         }
-
         public IActionResult Games(int id)
         {
             //show all the games of one developer

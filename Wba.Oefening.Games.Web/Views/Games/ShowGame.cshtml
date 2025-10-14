@@ -7,7 +7,10 @@
             </div>
             <div class="card-body">
                 <div class="card-title">
-                    @Model.Developer.Name
+                    <a class="link-info" asp-controller="Developers"
+                       asp-action="ShowDeveloper"
+                       asp-route-id="@Model.Developer.Id">@Model.Developer.Name</a>
+                       
                 </div>
             </div>
             <div class="card-footer">
