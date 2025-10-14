@@ -1,11 +1,22 @@
 ﻿@model GamesIndexViewModel
 
-@foreach(var game in Model.Games)
-{ 
-    <p>
-    <a asp-controller="Games" 
-          asp-action="ShowGame" 
-          asp-route-id="@game.Id">@game.Name</a>
-    </p>
-}
+<div class="row">
+    @foreach (var game in Model.Games)
+    {
+        <a class="icon-link" asp-controller="Games" asp-action="Showgame" asp-route-id="@game.Id">
+           <div class="col col-lg-3">
+                <div class="card" style="width: 18rem;">
+
+                    <img src="/images/@game.Image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@game.Name</h5>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+
+    }
+</div>
+
 

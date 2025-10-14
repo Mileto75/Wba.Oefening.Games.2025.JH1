@@ -31,7 +31,8 @@ namespace Wba.Oefening.Games.Web.Controllers
                 Games = games.Select(g => new BaseViewModel
                 { 
                     Id = g.Id,
-                    Name = g.Title
+                    Name = g.Title,
+                    Image = g.Image
                 })
             };
             //pass the model to the view
@@ -61,7 +62,8 @@ namespace Wba.Oefening.Games.Web.Controllers
                         Id = game.Developer.Id,
                         Name = game.Developer.Name
                     },
-                    Rating = game.Rating
+                    Rating = game.Rating,
+                    Image = game.Image
                 };
             //pass to the view
             return View(gamesShowGameViewModel);

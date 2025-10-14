@@ -18,7 +18,8 @@ namespace Wba.Oefening.Games.Core.Repositories
                     Rating = 1,
                     Developer =
                         developerRepository.GetDevelopers().
-                            First(d => d.Id == 1)
+                            First(d => d.Id == 1),
+                    Image = "game1.jpg"
                 },
                 new Game
                 {
@@ -27,7 +28,8 @@ namespace Wba.Oefening.Games.Core.Repositories
                     Rating = 2,
                     Developer =
                         developerRepository.GetDevelopers().
-                            First(d => d.Id == 2)
+                            First(d => d.Id == 2),
+                    Image = "game2.jpg"
                 },
                 new Game
                 {
@@ -36,7 +38,8 @@ namespace Wba.Oefening.Games.Core.Repositories
                     Rating = 5,
                     Developer =
                         developerRepository.GetDevelopers().
-                            First(d => d.Id == 3)
+                            First(d => d.Id == 3),
+                    Image = "game3.jpg"
                 },
                 new Game
                 {
@@ -45,7 +48,8 @@ namespace Wba.Oefening.Games.Core.Repositories
                     Rating = 3,
                     Developer =
                         developerRepository.GetDevelopers().
-                            First(d => d.Id == 3)
+                            First(d => d.Id == 3),
+                    Image = "game4.jpg"
                 }
             };
         }
