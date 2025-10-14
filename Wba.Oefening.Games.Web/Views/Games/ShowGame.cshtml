@@ -1,0 +1,21 @@
+﻿@model GamesShowGameViewModel
+<div class="row">
+    <div class="col col-4 mx-auto">
+        <div class="card text-center">
+            <div class="card-header">
+                @Model.Name
+            </div>
+            <div class="card-body">
+                <div class="card-title">
+                    @Model.Developer.Name
+                </div>
+            </div>
+            <div class="card-footer">
+                @Model.Rating
+            </div>
+            <a asp-controller="Games" asp-action="Index" class="btn btn-outline-info">Back</a>
+        </div>
+    </div>
+</div>
+
+
