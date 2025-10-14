@@ -12,11 +12,13 @@ namespace Wba.Oefening.Games.Web.Controllers
     public class DevelopersController : Controller
     {
         private readonly DeveloperRepository _developerRepository;
+        private readonly GameRepository _gameRepository;
 
         public DevelopersController()
         {
             //initialize service classes
             _developerRepository = new DeveloperRepository();
+            _gameRepository = new GameRepository();
         }
 
        
@@ -42,10 +44,28 @@ namespace Wba.Oefening.Games.Web.Controllers
         public IActionResult ShowDeveloper(int id)
         {
             //get the developer
+            var developer = _developerRepository
+                .GetDevelopers()
+                .FirstOrDefault(d => d.Id == id);
             //get the games
+            var games = _gameRepository
+                .GetGames()
+                .Where(g => g.Developer.Id == id);
             //create and fill the model
+            var developersShowDevelopersViewModel
+                = new DevelopersShowDeveloperViewModel
+                {
+                    Id = developer.Id,
+                    Name = developer.Name,
+                    Games = games.Select(g =>
+                    new BaseViewModel
+                    {
+                        Id = g.Id,
+                        Name = g.Title
+                    })
+                };
             //pass to the view
-            return Content("I should make a view + view model for this!");
+            return View(developersShowDevelopersViewModel);
         }
 
         public IActionResult Games(int id)
