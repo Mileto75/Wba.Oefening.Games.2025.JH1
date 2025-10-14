@@ -9,6 +9,20 @@
                 <h6 class="card-subtitle mb-2 text-muted">Developer</h6>
                 <p class="card-text">@Model.Developer.Name</p>
                 <a asp-controller="Games" asp-action="Index" class="btn btn-primary">Back</a>
+                <div class="card-footer">
+                    @* show the stars *@
+                    @for(int i = 0;i <5;i++)
+                    {
+                        if(i < Model.Rating)
+                        { 
+                            <i class="icon-star"></i>
+                        }
+                        else
+                        { 
+                            <i class="icon-star-empty"></i>
+                        }
+                    }
+                </div>
             </div>
         </div>
     </div>
