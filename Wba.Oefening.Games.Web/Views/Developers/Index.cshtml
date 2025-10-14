@@ -1,0 +1,27 @@
+﻿@model DevelopersIndexViewModel
+
+<div class="row">
+    <div class="col col-lg-6 mx-auto">
+        <h5>Developers</h5>
+        <table class="table table-hover table-responsive-lg">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            @foreach (var developer in Model.Developers)
+            {
+                <tr>
+                    <td>@developer.Name</td>
+                    <td>
+                        <a asp-controller="Developer"
+                           asp-action="ShowDeveloper"
+                           asp-route-id="@developer.Id"
+                           class="btn btn-outline-info">Info</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div> 
