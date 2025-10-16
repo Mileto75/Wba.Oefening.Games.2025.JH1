@@ -7,7 +7,7 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
             </thead>
             @foreach (var developer in Model.Developers)
@@ -18,7 +18,13 @@
                         <a asp-controller="Developers"
                            asp-action="ShowDeveloper"
                            asp-route-id="@developer.Id"
-                           class="btn btn-outline-info">Info</a>
+                           class="btn btn-info">Info</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Developers"
+                           asp-action="Games"
+                           asp-route-id="@developer.Id"
+                           class="btn btn-warning">Games</a>
                     </td>
                 </tr>
             }

@@ -1,6 +1,6 @@
-﻿@model GamesIndexViewModel
+﻿@model IEnumerable<BaseViewModel>
 <div class="row">
-    @foreach (var game in Model.Games)
+    @foreach (var game in Model)
     {
         <a class="link-body-emphasis" asp-controller="Games" asp-action="Showgame" asp-route-id="@game.Id">
             <div class="col col-lg-3">

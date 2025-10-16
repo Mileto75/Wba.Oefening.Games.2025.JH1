@@ -70,7 +70,36 @@ namespace Wba.Oefening.Games.Web.Controllers
         public IActionResult Games(int id)
         {
             //show all the games of one developer
-            return View();
+            //check if developer exists!(Noah method)
+            var developer = _developerRepository
+                .GetDevelopers()
+                .FirstOrDefault(d => d.Id == id);
+            if (developer == null)
+            {
+                return NotFound();
+            }
+            //if (_developerRepository.GetDevelopers().Any(d => d.Id == id) == false)
+            //{
+            //    return NotFound();
+            //}
+            //get the games of the developerId
+            var games = _gameRepository
+                .GetGames()
+                .Where(g => g.Developer.Id == id);
+            //create the model
+            //fill the model
+            var developersGamesViewModel = new DevelopersGamesViewModel
+            {
+                Games = games.Select(g => new BaseViewModel
+                {
+                    Id = g.Id,
+                    Name = g.Title,
+                    Image = g.Image
+                }),
+                Developer = developer.Name
+            };
+            //pass to the view
+            return View(developersGamesViewModel);
         }
 
     }
